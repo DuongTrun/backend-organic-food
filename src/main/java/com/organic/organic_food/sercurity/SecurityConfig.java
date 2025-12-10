@@ -98,7 +98,7 @@ public class SecurityConfig {
 		CorsConfiguration configuration = new CorsConfiguration();
 
 		// 1. Cho phép Frontend (React) truy cập
-		configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+		configuration.setAllowedOrigins(List.of("*"));
 
 		// 2. Cho phép các Method này
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
@@ -138,4 +138,5 @@ public class SecurityConfig {
 
 		return http.build();
 	}
+
 }
