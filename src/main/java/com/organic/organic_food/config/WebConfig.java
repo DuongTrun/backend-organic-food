@@ -8,8 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("*") // Cho phép mọi nơi gọi vào (Sau này có thể đổi thành domain
-														// Vercel)
-				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+		registry.addMapping("/**").allowedOriginPatterns("*") // Cho phép mọi domain truy cập
+				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Cho phép mọi thao tác
+				.allowedHeaders("*") // Cho phép mọi loại dữ liệu đầu vào
+				.allowCredentials(true); // Cho phép gửi cookie/xác thực (nếu cần)
 	}
 }
